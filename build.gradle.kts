@@ -24,6 +24,12 @@ extra["hibernate_reactive_version"] = "1.0.0.CR6"
 extra["hibernate_core_version"] = "5.5.0.Final"
 
 allprojects {
+
+    // don't cache changing modules at all
+    configurations.all {
+        resolutionStrategy.cacheChangingModulesFor(0, "seconds")
+    }
+
     repositories {
         maven {
             setUrl("https://maven.myddd.org/releases/")
